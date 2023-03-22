@@ -1,31 +1,3 @@
-// includes
-#include <iostream>
-#include <list>
-#include <stdexcept>
-#include <stack>
-#include <string>
-#include <ctype.h>
-#include <sstream>
-
-using namespace std;
-
-// Element in einer einfach VL
-class NodeE
-{
-public:
-    int item;
-    NodeE *next;
-};
-
-// Element in einer doppelt VL
-class NodeD
-{
-public:
-    int item;
-    NodeD *next;
-    NodeD *prev;
-};
-
 // Einfach VL
 class ListE
 {
@@ -83,7 +55,6 @@ public:
     // Swap Methode welche den Knoten an der stelle
     // Index mit dem naechsten tauscht
     bool swap(const int& index){
-        
         NodeE *currentPtr = m_head;
           
         if(m_head != nullptr){
@@ -127,6 +98,7 @@ public:
     // Print Methode welche die Knoten rueckwaerts
     // (in O(n)) ausgibt. Wird bei Aufgabe 4 implementiert.
     void print_reversed() const;
+    
 private:
     NodeE* m_head;
     NodeE* m_tail;
@@ -136,25 +108,3 @@ private:
     // implementiert wird)
     void print_reversed_helper(NodeE* node) const;
 };
-
-int main(){
-    ListE* l = new ListE();
-    l->add(1);
-    l->add(2);
-    //l->add(3);
-    //l->add(4);
-    //l->add(5);
-    
-    
-    cout << "swap 0" << endl;
-    l->swap(0);
-    
-    cout << "swap 1" << endl;
-    l->swap(1);
-    
-    cout << "swap 2" << endl;
-    l->swap(2);
-    cout << l << endl;
-    
-    return 0;
-}
